@@ -4,7 +4,6 @@ namespace RhysLees\LaravelFormate;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use RhysLees\LaravelFormate\Commands\LaravelFormateCommand;
 
 class LaravelFormateServiceProvider extends PackageServiceProvider
 {
