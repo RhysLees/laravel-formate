@@ -7,20 +7,20 @@
 	'autofocus' => false,
 	'disabled' => false,
 	'readonly' => false,
-	'requiredBadge' => true,
-	'optionalBadge' => true,
-	])
+	'showLabel' => true,
+	'showBadge' => true,
+])
 
 <div {{ $attributes->merge(['class' => '']) }}>
-    <label for="{{ $name }}" class="flow-root text-sm font-medium leading-6 text-gray-900">
+    <label for="{{ $name }}" class="flow-root text-sm font-medium leading-6 text-gray-900 {{ $showLabel ? '' : 'sr-only'}}">
         {{ $label }}
         <span class="float-left"></span>
-        @if($optionalBadge && !$required)
+        @if($showBadge && !$required)
             <span class="float-right inline-flex items-center rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
                   {{ __('optional') }}
             </span>
         @endif
-        @if($requiredBadge && $required)
+        @if($showBadge && $required)
             <span class="float-right inline-flex items-center rounded-md bg-red-100 px-2 py-1 text-xs font-medium text-red-700">
                   {{ __('required') }}
             </span>
