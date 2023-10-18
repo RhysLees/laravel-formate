@@ -14,10 +14,11 @@
 	'readonly' => false,
 	'showLabel' => true,
 	'showBadge' => true,
+    'lightLabel' => false,
 ])
 
 <div {{ $attributes->merge(['class' => '']) }}>
-    <label for="{{ $name }}" class="flow-root text-sm font-medium leading-6 text-gray-900 {{ $showLabel ? '' : 'sr-only'}}">
+    <label for="{{ $name }}" class="flow-root text-sm font-medium leading-6 text-gray-900 {{ $showLabel ? '' : 'sr-only'}} {{ $lightLabel ? 'text-white' : 'text-black'}}">
         {{ $label }}
         <span class="float-left"></span>
         @if($showBadge && !$required)
