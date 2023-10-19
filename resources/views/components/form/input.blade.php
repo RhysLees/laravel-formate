@@ -4,6 +4,7 @@
 	'name',
 	'type',
 	'area' => false,
+    'rows' => 3,
 	'placeholder' => null,
 	'value' => null,
 	'helper' => null,
@@ -54,6 +55,7 @@
                 @if($disabled) disabled @endif
                 @if($readonly) readonly @endif
                 @if($autocomplete) autocomplete="{{ $autocomplete }}" @endif
+                @if($area) rows="{{ $rows ?? 0 }}" @endif
         @if($area)
             ></textarea>
         @else
