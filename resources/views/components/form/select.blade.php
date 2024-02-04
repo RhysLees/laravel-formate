@@ -13,20 +13,8 @@
 ])
 
 <div {{ $attributes->merge(['class' => '']) }}>
-    <label for="{{ $name }}" class="flow-root text-sm font-medium leading-6 text-gray-900 {{ $showLabel ? '' : 'sr-only'}}">
-        {{ $label }}
-        <span class="float-left"></span>
-        @if($showBadge && !$required)
-            <span class="float-right inline-flex items-center rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
-                  {{ __('optional') }}
-            </span>
-        @endif
-        @if($showBadge && $required)
-            <span class="float-right inline-flex items-center rounded-md bg-red-100 px-2 py-1 text-xs font-medium text-red-700">
-                  {{ __('required') }}
-            </span>
-        @endif
-    </label>
+    <x-formate::form.elements.badge :label="$label" :name="$name" :showLabel="$showLabel" :showBadge="$showBadge" :required="$required" :lightLabel="$lightLabel" />
+
     <div class="relative mt-2 rounded-md shadow-sm">
         <select
                 id="{{ $name }}"
@@ -41,28 +29,15 @@
                 @if($required) required @endif
                 @if($autofocus) autofocus @endif
                 @if($disabled) disabled @endif
-                @if($readonly) readonly @endif>
+                @if($readonly) readonly @endif
+        >
             {{ $slot }}
         </select>
 
-        @error($name)
-        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-            <svg class="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z"
-                      clip-rule="evenodd"/>
-            </svg>
-        </div>
-        @enderror
+        <x-formate::form.elements.error-icon :name="$name" />
     </div>
-    @if($helper)
-        <p class="mt-2 text-xs text-gray-500" id="{{ $name .'-description'  }}">
-            {{ $helper }}
-        </p>
-    @endif
-    @error($name)
-    <p class="mt-2 text-sm text-red-600" id="email-error">
-        {{$message}}
-    </p>
-    @enderror
+
+    <x-formate::form.elements.helper :name="$name" :helper="$helper" />
+
+    <x-formate::form.elements.error :name="$name" />
 </div>

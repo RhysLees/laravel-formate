@@ -3,6 +3,7 @@
 	'label',
 	'name',
 	'type',
+    'rows' => 3,
 	'placeholder' => null,
 	'value' => null,
 	'helper' => null,
@@ -21,7 +22,7 @@
     <x-formate::form.elements.badge :label="$label" :name="$name" :showLabel="$showLabel" :showBadge="$showBadge" :required="$required" :lightLabel="$lightLabel" />
 
     <div class="relative mt-2 rounded-md shadow-sm">
-        <input
+        <textarea
             id="{{ $name }}"
             name="{{ $name }}"
             dusk="{{ $name }}"
@@ -40,7 +41,9 @@
             @if($disabled) disabled @endif
             @if($readonly) readonly @endif
             @if($autocomplete) autocomplete="{{ $autocomplete }}" @endif
+            @if($rows) rows="{{ $rows }}" @endif
         >
+        </textarea>
 
         <x-formate::form.elements.error-icon :name="$name" />
     </div>
