@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-formate` will be documented in this file.
 
+## 0.2.0 - 2024-03-13
+
+**Full Changelog**: https://github.com/RhysLees/laravel-formate/compare/0.1.0...0.2.0
+
 ## 0.1.0 - 2024-02-04
 
 ### What's Changed
